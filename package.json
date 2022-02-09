@@ -19,7 +19,8 @@
   "homepage": "https://github.com/Borcate/teste-ebac-ui#readme",
   "dependencies": {
     "-": "^0.0.1",
-    "D": "^1.0.0"
+    "D": "^1.0.0",
+    "faker": "^5.5.3"
   },
   "devDependencies": {
     "cypress": "^9.4.1"
