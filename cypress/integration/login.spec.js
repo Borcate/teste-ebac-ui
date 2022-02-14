@@ -8,8 +8,8 @@ context ('Funcionalidade Login', () =>{
     cy.visit('minha-conta/')
   });
 
-//  afterEach(() => {
-//   cy.screenshot()
+ // afterEach(() => {
+ //   cy.screenshot()
  // });
 
   it('Deve fazer login com sucesso', () => {
@@ -22,26 +22,15 @@ context ('Funcionalidade Login', () =>{
   });
 
 
-it('Deve fazer login com sucesso - Usando arquivo de dados', () => {
-  cy.get('#username').type(perfil.usuario)
+  it.only('Deve fazer login com sucesso - Utilizando arquivos de dados', () => {
+    cy.get('#username').type(perfil.usuario)
     cy.get('#password').type(perfil.senha)
     cy.get('.woocommerce-form > .button').click()
 
     cy.get('.page-title').should('contain', 'Minha conta')
-});
+  });
 
 
-it.only('Deve fazer login com sucesso - Usando fixture', () => {
-  cy.fixture('perfil').then(dados => {
-    cy.get('#username').type(perfil.usuario)
-    cy.get('#password').type(perfil.senha, {log: false})
-    cy.get('.woocommerce-form > .button').click()
-
-    cy.get('.page-title').should('contain', 'Minha conta')
-  })
-});
-
-  
   it('Deve exibir uma mensagem de erro ao inserir usuário inválido', () => {
     cy.get('#username').type('ebac@teste.com')
     cy.get('#password').type('teste@teste')

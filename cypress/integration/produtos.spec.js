@@ -15,7 +15,7 @@ describe('Funcionalidade página de produtos', () => {
             .click()
     });
 
-    it.only('Deve adicionar um produto no carrinho', () => {
+    it('Deve adicionar um produto no carrinho', () => {
         var quantidade = 10
 
         cy.get('[class="product-block grid"]')
@@ -29,5 +29,12 @@ describe('Funcionalidade página de produtos', () => {
             cy.get('.woocommerce-message').should('contain', quantidade + ' × “Ariel Roll Sleeve Sweatshirt” foram adicionados no seu carrinho.')
     });
 
+    it.only('Deve adicionar produtos ao carrinho - Utilizando comandos customizados', () => {
+        cy.addProdutos('Aether Gym Pant', '33', 'Blue', 3)
+    });
+
+    it.only('Deve adicionar produtos ao carrinho - Utilizando comandos customizados', () => {
+        cy.addProdutos('Ariel Roll Sleeve Sweatshirt', 'M', 'Green', 5)
+    });
 
 });
