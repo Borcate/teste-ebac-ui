@@ -16,7 +16,7 @@ beforeEach(() => {
         cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso.')
     });
 
-    it.only('Deve fazer cadastro de faturamento - Utizando arquivo de dados', () => {
+    it('Deve fazer cadastro de faturamento - Utizando arquivo de dados', () => {
         EnderecoPage.editarEnderecoFaturamento(
             dadosEndereco[1].nome,
             dadosEndereco[1].sobrenome,
@@ -31,4 +31,10 @@ beforeEach(() => {
             dadosEndereco[1].email)
         cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso.')
     });
+
+    it.only('Deve fazer cadastro de entrega', () => {
+        EnderecoPage.editarEnderecoEntrega()
+        cy.get('.woocommerce-message').should('contain', 'Endereço alterado com sucesso.')
+    });
+
 });

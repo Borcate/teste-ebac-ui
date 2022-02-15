@@ -18,7 +18,18 @@ editarEnderecoFaturamento(nome, sobrenome, empresa, pais, endereco, numero, cida
 }
 
 editarEnderecoEntrega() {
-    //elemntos +  ações
+    cy.get('.woocommerce-MyAccount-navigation-link--edit-address > a').click()
+    cy.get(':nth-child(2) > .title > .edit > .fa').click()
+    cy.get('#shipping_first_name').clear().type('Carla')
+    cy.get('#shipping_last_name').clear().type('Silva')
+    cy.get('#shipping_company').clear().type('Empresa2')
+    cy.get('#select2-shipping_country-container').click().type('Brasil').get('[aria-selected="true"]').click()
+    cy.get('#shipping_address_1').clear().type('Rua Flores')
+    cy.get('#shipping_address_2').clear().type('1')
+    cy.get('#shipping_city').clear().type('Lapa')
+    cy.get('#select2-shipping_state-container').click().type('Rio Grande do Sul{enter}')
+    cy.get('#shipping_postcode').clear().type('83420-000')
+    cy.get(':nth-child(2) > .button').click()
 }
 
 }
